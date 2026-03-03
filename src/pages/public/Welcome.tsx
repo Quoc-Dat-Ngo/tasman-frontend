@@ -35,8 +35,9 @@ const Welcome = () => {
               <div className="flex flex-wrap gap-3">
                 <Button
                   asChild
+                  variant="outline"
                   size="lg"
-                  className="bg-zinc-100 text-zinc-900 hover:bg-zinc-200 border-0"
+                  className="text-zinc-900 hover:bg-zinc-800 hover:text-white border-zinc-600 text-md"
                 >
                   <Link to="/courses">Explore courses</Link>
                 </Button>
@@ -44,7 +45,7 @@ const Welcome = () => {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="border-zinc-600 text-zinc-200 hover:bg-zinc-800 hover:text-white"
+                  className="border-zinc-600 text-zinc-900 hover:bg-zinc-800 hover:text-white text-md"
                 >
                   <Link to="/register">Apply now</Link>
                 </Button>
@@ -146,7 +147,9 @@ const Welcome = () => {
             </div>
             <div className="text-center sm:flex-1 sm:px-8">
               <p className="text-2xl font-semibold text-white">Leading</p>
-              <p className="text-sm text-zinc-400 mt-1">research & industry links</p>
+              <p className="text-sm text-zinc-400 mt-1">
+                research & industry links
+              </p>
             </div>
           </div>
         </div>
@@ -161,14 +164,14 @@ const Welcome = () => {
           <p className="text-zinc-400 max-w-3xl leading-relaxed">
             Tasman is dedicated to driving progress for all. Our vision is
             ambitious: to address pressing challenges and drive positive change
-            through transformative education, innovative research, and meaningful
-            engagement. Discover how we're changing lives.
+            through transformative education, innovative research, and
+            meaningful engagement. Discover how we're changing lives.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Button
               asChild
               variant="outline"
-              className="border-zinc-600 text-zinc-200 hover:bg-zinc-700"
+              className="border-zinc-600 text-zinc-950 hover:bg-zinc-600"
             >
               <Link to="/courses">
                 Read impact stories <ArrowRight className="ml-1.5 h-4 w-4" />
@@ -192,7 +195,11 @@ const Welcome = () => {
           {[
             { date: "Wed 4 Mar", tag: "SUMMIT", title: "Implications of AI" },
             { date: "Thu 5 Mar", tag: "EVENT", title: "Build, Grow and Lead" },
-            { date: "Tue 10 Mar", tag: "LEADERSHIP", title: "From strength to impact" },
+            {
+              date: "Tue 10 Mar",
+              tag: "LEADERSHIP",
+              title: "From strength to impact",
+            },
           ].map((event) => (
             <Link
               key={event.date + event.title}
@@ -266,9 +273,18 @@ const Welcome = () => {
         </h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { title: "Do uni your way", desc: "Shape your experience on campus." },
-            { title: "Student life", desc: "Stay connected with the community." },
-            { title: "Respect and diversity", desc: "We celebrate all backgrounds." },
+            {
+              title: "Do uni your way",
+              desc: "Shape your experience on campus.",
+            },
+            {
+              title: "Student life",
+              desc: "Stay connected with the community.",
+            },
+            {
+              title: "Respect and diversity",
+              desc: "We celebrate all backgrounds.",
+            },
             { title: "Our campuses", desc: "Learn about our locations." },
           ].map((item) => (
             <Link key={item.title} to="/department">
@@ -302,21 +318,22 @@ const Welcome = () => {
           <div className="flex flex-wrap gap-3">
             <Button
               asChild
-              className="bg-zinc-100 text-zinc-900 hover:bg-zinc-200 border-0"
+              variant="outline"
+              className="bg-zinc-100 text-zinc-900 transition-transform duration-200 shadow-sm hover:scale-x-105 hover:shadow-[0_0_24px_rgba(56,189,248,0.45)]"
             >
               <Link to="/courses">Find your degree</Link>
             </Button>
             <Button
               asChild
               variant="outline"
-              className="border-zinc-600 text-zinc-200 hover:bg-zinc-800"
+              className="bg-zinc-100 text-zinc-900 transition-transform duration-200 shadow-sm hover:scale-x-105 hover:shadow-[0_0_24px_rgba(56,189,248,0.45)]"
             >
               <Link to="/courses">Enquire now</Link>
             </Button>
             <Button
               asChild
               variant="outline"
-              className="border-zinc-600 text-zinc-200 hover:bg-zinc-800"
+              className="bg-zinc-100 text-zinc-900 transition-transform duration-200 shadow-sm hover:scale-x-105 hover:shadow-[0_0_24px_rgba(56,189,248,0.45)]"
             >
               <Link to="/register">Apply now</Link>
             </Button>
@@ -327,14 +344,15 @@ const Welcome = () => {
       {/* Footer strip */}
       <footer className="border-t border-zinc-800 py-6">
         <div className="mx-auto max-w-6xl px-6 flex flex-wrap items-center justify-between gap-4">
-          <p className="text-zinc-500 text-sm">
-            Tasman · Progress for All
-          </p>
+          <p className="text-zinc-500 text-sm">Tasman · Progress for All</p>
           <div className="flex gap-6 text-sm">
             <Link to="/courses" className="text-zinc-500 hover:text-zinc-300">
               Contact us
             </Link>
-            <Link to="/department" className="text-zinc-500 hover:text-zinc-300">
+            <Link
+              to="/department"
+              className="text-zinc-500 hover:text-zinc-300"
+            >
               About us
             </Link>
             <Link to="/courses" className="text-zinc-500 hover:text-zinc-300">

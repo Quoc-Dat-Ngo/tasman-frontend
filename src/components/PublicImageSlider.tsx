@@ -38,7 +38,7 @@ const PublicImageSlider = () => {
                   <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-10" />
                 </div>
 
-                <div className="px-6 py-4 text-sm text-gray-600">
+                <div className="px-6 py-4 text-sm text-gray-600 text-center">
                   {item.caption}
                 </div>
               </div>
