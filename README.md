@@ -7,13 +7,26 @@ The app is built with **React**, **Tailwind CSS**, and **shadcn/ui**, using a sm
 
 ---
 
+### Live Demo
+
+![Tasman Welcome Page](./src/assets/welcome-page.png)
+
+> TODO: update link after deploying to Vercel.
+
+[Link to Tasman Frontend](placeholder.com)
+
+
+---
+
 ### Table of Contents
 
-1. [Tech Stack](#tech-stack)
-2. [Getting Started](#getting-started)
-3. [Available Scripts](#available-scripts)
-4. [Project Structure](#project-structure)
-5. [Key UI Concepts](#key-ui-concepts)
+1. [Live Demo](#live-demo)
+2. [Screenshot](#screenshot)
+3. [Tech Stack](#tech-stack)
+4. [Getting Started](#getting-started)
+5. [Available Scripts](#available-scripts)
+6. [Project Structure](#project-structure)
+7. [Key UI Concepts](#key-ui-concepts)
 
 ---
 
