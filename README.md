@@ -1,73 +1,123 @@
-# React + TypeScript + Vite
+## Tasman Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tasman Frontend is the **minimal, modern UI** for the Tasman backend API.  
+The focus of this repo is to provide a **sleek, dark zinc-themed interface** for exploring courses, departments, and internal admin views, while keeping the implementation straightforward so most of the complexity can live in the backend.
 
-Currently, two official plugins are available:
+The app is built with **React**, **Tailwind CSS**, and **shadcn/ui**, using a small set of well-structured pages, layouts, and shared components (like navigation and cards) to keep the codebase easy to understand and extend later.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+### Table of Contents
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. [Tech Stack](#tech-stack)
+2. [Getting Started](#getting-started)
+3. [Available Scripts](#available-scripts)
+4. [Project Structure](#project-structure)
+5. [Key UI Concepts](#key-ui-concepts)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React** (with TypeScript) for the component-based UI and routing logic.
+- **React Router** for client-side routing between public, auth, and internal/admin pages.
+- **Tailwind CSS** (zinc-based palette) for utility-first styling and custom theming.
+- **shadcn/ui** components (button, card, inputs, carousel, etc.) for consistent, accessible primitives.
+- **Vite** for fast dev server and build tooling.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Getting Started
+
+```bash
+# install dependencies
+npm install
+
+# run dev server
+npm run dev
+
+# build for production
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+By default the app expects a separate **backend API** (not included here).  
+This repo is intentionally UI-only: it focuses on layout, navigation, and visual design rather than data modelling.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Available Scripts
+
+- **`npm run dev`**: start the Vite dev server.
+- **`npm run build`**: type-check and build the production bundle.
+- **`npm run preview`**: preview the built app.
+- **`npm run lint`**: run ESLint over the project.
+
+---
+
+### Project Structure
+
+Only the important pieces are listed to keep things simple:
+
+```text
+src/
+  App.tsx                # Top-level router definition
+  main.tsx               # React entry point
+  index.css              # Tailwind & shadcn theme configuration
+
+  layout/
+    PublicLayout.tsx     # Public shell (navbar + outlet)
+    InternalLayout.tsx   # Internal shell for logged-in/admin views
+
+  components/
+    PublicNavBar.tsx     # Public navigation bar (logo + links + auth entry)
+    InternalNavBar.tsx   # Internal navigation/navigation for admin area
+    PublicImageSlider.tsx# Hero carousel on the welcome page
+    NavItem.tsx          # Reusable nav link with active state
+    TasmanLogo.tsx       # SVG logo used in nav and branding
+
+    ui/                  # shadcn/ui-based primitives
+      button.tsx
+      card.tsx
+      carousel.tsx
+      input.tsx
+      textarea.tsx
+      checkbox.tsx
+      select.tsx
+      label.tsx
+      field.tsx
+      separator.tsx
+
+  pages/
+    public/
+      Welcome.tsx        # UNSW-inspired landing page (Tasman theme)
+      Department.tsx     # Public-facing view of departments
+      course/
+        Courses.tsx      # Public course list
+        Course.tsx       # Individual course details
+
+    auth/
+      LogIn.tsx          # Login UI (hooked to backend auth)
+      Register.tsx       # Registration UI
+
+    admin/
+      Admin.tsx          # Admin dashboard entry
+      Student.tsx        # Admin student management
+      Instructor.tsx     # Admin instructor management
+      Major.tsx          # Admin major management
+
+    internal/
+      User.tsx           # Internal user/home page after login
+
+  lib/
+    utils.ts             # Small shared helpers (e.g. className merge)
 ```
+
+---
+
+### Key UI Concepts
+
+- **Minimal but polished**: dark zinc palette with subtle motion (hover scales, auras, and carousels) to keep the UI feeling modern without over-engineering.
+- **Clear separation of concerns**: layouts (`PublicLayout`, `InternalLayout`) wrap feature pages, while shared UI primitives live in `components/ui`.
+- **Backend-first mindset**: the frontend intentionally avoids complex state management and heavy client logic, so most of the work can stay in the backend API while the UI remains easy to reason about and iterate on.
+
+This should be enough context to onboard quickly, tweak styling, or extend new pages while keeping the surface area of the frontend small.
