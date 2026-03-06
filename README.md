@@ -9,11 +9,15 @@ The app is built with **React**, **Tailwind CSS**, and **shadcn/ui**, using a sm
 
 ### Live Demo
 
+## Welcome Page
 ![Tasman Welcome Page](./src/assets/welcome-page.png)
 
-> TODO: update link after deploying to Vercel.
+## Admin Dashboard
+> TODO: add screenshot once finish admin page
 
-[Link to Tasman Frontend](placeholder.com)
+
+> TODO: update link after deploying to Vercel.
+Check out Tasman now: [Link to Tasman Frontend](placeholder.com)
 
 
 ---
