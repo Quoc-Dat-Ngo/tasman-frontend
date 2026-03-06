@@ -4,6 +4,7 @@ import Student from "./pages/admin/Student";
 import Course from "./pages/public/course/Course";
 import Major from "./pages/admin/Major";
 import Instructor from "./pages/admin/Instructor";
+import Departments from "./pages/public/Departments";
 import Department from "./pages/public/Department";
 import LogIn from "./pages/auth/LogIn";
 import Register from "./pages/auth/Register";
@@ -26,7 +27,7 @@ const App = () => {
         {/* On start-up */}
         <Route element={<PublicLayout />}>
           <Route path="/" element={<Welcome />} />
-          <Route path="/department" element={<Department />} />
+          <Route path="/department" element={<Departments />} />
           <Route path="/department/:id" element={<Department />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/:id" element={<Course />} />
